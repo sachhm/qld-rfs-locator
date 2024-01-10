@@ -1,17 +1,18 @@
 import pandas as pd
+import requests
+
+# read data as dataframe
+qld_rfs = pd.read_csv("data/qld-rfs.csv")
+
+street_no = float(input("Enter your street number "))
+street = input("Enter your street ")
+locality = input("Enter your locality ")  
+
+street = street.replace(" ", "+")
+locality = locality.replace(" ", "+")
 
 
-qld_rfs = pd.DataFrame(
-    {
-        "STATION": "test",
-        "ADDRESS": "Test",
-        "LOCALITY": "TEst",
-        "ALTADDRESS": "Test",
-        "LONG_GDA94": 123,
-        "LAT_GDA94": 123,
-        "LONG_GDA20": 'a123',
-        "LAT_GDA20": "asdasd",
-    }
-)
+geocoding_request_url = f'https://photon.komoot.io/api/?q={street_no}+{street}+{locality}'
 
-qld_rfs
+geocoding_request = requests.get(geocoding_request_url)
+print(geocoding_request_url)
