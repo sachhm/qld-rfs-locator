@@ -12,11 +12,12 @@ def main():
     geocoding_request_url = make_api_request(street_no, street, locality)
     lat, long = extract_lat_long(geocoding_request_url)
     closest_rfs = find_closest_location(lat, long, QLD_RFS)
+    closest_rfs_formatted = f"{closest_rfs["STATION"]}, {closest_rfs["ADDRESS"]}, {closest_rfs["LOCALITY"]}"
     
-    print(closest_rfs)
+    print(closest_rfs_formatted)
 
 def get_formatted_input():
-    street_no = float(input("Enter your street number "))
+    street_no = int(input("Enter your street number "))
     street = input("Enter your street ")
     locality = input("Enter your locality ")  
 
