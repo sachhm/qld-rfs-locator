@@ -5,10 +5,14 @@
    <p>
     This is a simple app that uses a publically avaliable dataset on the
     Queensland Open Data Portal (Specifically the Queensland Fire and Emergency Services - Rural Fire Stations dataset)
-    to find the closest rural fire station given an address. It uses the  
+    to find the closest rural fire station given an address. It uses the photon API to find the lat long coordinates of a given
+    address, and then the closest rural firestation from the csv data.
    </p>
 
-   <p>
-
-   </p>
+   <h2>Links</h2>
+   <ul>
+      <li><a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a></li>
+      <li><a href="https://www.data.qld.gov.au/dataset/rural-fire-stations/resource/e09d0d06-b13e-4e52-b82d-1ce0cf05927c">QLD RFS Dataset</a></li>
+      <li><a href="https://photon.komoot.io/">photon</a></li>
+   </ul>
 {% endblock %}

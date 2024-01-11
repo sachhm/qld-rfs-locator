@@ -1,7 +1,7 @@
 /* styles.css */
 
 /* Shared styles for HTML and fonts */
-html, h1, h2, p, #nav, #footer {
+html, h1, h2, p, #nav, #footer{
     font-family: 'Raleway', sans-serif;
 }
 
@@ -15,36 +15,37 @@ html {
 
 /* Common styles for text */
 h1 {
+
     font-weight: 400;
     font-size: 48px; /* Slightly reduce the font size for a more balanced look */
 }
 
 h2 {
-    font-weight: 100;
+    font-weight: bold;
     font-size: 24px;
 }
 
 p, #nav a {
-    font-weight: 100;
+    font-weight: 200;
     font-size: 16px; /* Adjust font size for better readability */
 }
 
 /* Media queries for adjusting font size on different screens */
 @media (max-width: 600px) {
     p, #nav a {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
     p, #nav a {
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 
 @media (min-width: 901px) {
     p, #nav a {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 
