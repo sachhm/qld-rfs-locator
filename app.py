@@ -11,7 +11,7 @@ def home():
 
 @app.route('/locate', methods=['POST'])
 def locate():
-    """POST method to locate nearest QLD RFS station"""
+    """Locate nearest QLD RFS station"""
     street_no = int(request.form['street_no'])
     street = request.form['street']
     locality = request.form['locality']
