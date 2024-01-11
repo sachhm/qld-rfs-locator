@@ -52,7 +52,7 @@ p, #nav a {
 /* Styles for ul in #content */
 #content ul {
     text-align: left;
-    padding-left: 2em; /* Adjust to create more whitespace and improve readability */
+    padding-left: 5.25em;
 }
 
 /* Common styles for #nav and #footer */
@@ -79,6 +79,8 @@ p, #nav a {
 #content {
     text-align: center;
     font-size: 20px; /* Slightly increase font size for main content */
+    margin: 0 16em; /* Use shorthand for margin */
+
 }
 
 /* Styles for #footer */
