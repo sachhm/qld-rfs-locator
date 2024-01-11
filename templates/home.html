@@ -2,4 +2,22 @@
 {% block title %}Home{% endblock %}
 {% block content %} 
    <h1>QLD RFS Locator</h1>
+   <p>
+      Please provide an address, and I will find the closest rural fire station near you.
+   </p>
+   
+   <form method="post" action="/locate">
+      <label for="street_no">Street Number:</label>
+        <input type="text" name="street_no" required><br>
+
+        <label for="street">Street:</label>
+        <input type="text" name="street" required><br>
+
+        <label for="locality">Locality:</label>
+        <input type="text" name="locality" required><br>
+
+        <button type="submit">Locate</button>
+   </form>
+
+   <p>Your nearest QLD RFS is: {{closest_rfs}}</p>
 {% endblock %}
