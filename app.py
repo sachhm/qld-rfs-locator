@@ -4,7 +4,6 @@ import qld_rfs
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def home():
     return render_template("home.html")
@@ -15,16 +14,12 @@ def locate():
     street = request.form['street']
     locality = request.form['locality']
 
-    # Call your geocoding and fire station functions
+    # Find closest 
     geocoding_request_url = qld_rfs.make_api_request(street_no, street, locality)
     lat, long = qld_rfs.extract_lat_long(geocoding_request_url)
-    closest_rfs_lat = qld_rfs.find_closest_value_pandas(lat, qld_rfs.QLD_RFS["LAT_GDA20"])
-    closest_rfs_long = qld_rfs.find_closest_value_pandas(long, qld_rfs.QLD_RFS["LONG_GDA20"])
+    closest_rfs = qld_rfs.find_closest_location(lat, long, qld_rfs.QLD_RFS)
 
-    closest_rfs = qld_rfs.QLD_RFS[qld_rfs.QLD_RFS["LAT_GDA20"] == closest_rfs_lat]
-    closest_rfs = qld_rfs.QLD_RFS[qld_rfs.QLD_RFS["LONG_GDA20"] == closest_rfs_long]
-
-    return render_template("home.html", closest_rfs=closest_rfs)
+    return render_template("home.html", lat=lat, long=long,closest_rfs=closest_rfs)
 
 
 

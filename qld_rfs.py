@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import requests, json
 
 # Constants
@@ -10,11 +11,7 @@ def main():
     street_no, street, locality = get_formatted_input()
     geocoding_request_url = make_api_request(street_no, street, locality)
     lat, long = extract_lat_long(geocoding_request_url)
-    closest_rfs_lat = find_closest_value_pandas(lat, QLD_RFS["LAT_GDA20"])
-    closest_rfs_long = find_closest_value_pandas(long, QLD_RFS["LONG_GDA20"])
-
-    closest_rfs = QLD_RFS[QLD_RFS["LAT_GDA20"] == closest_rfs_lat]
-    closest_rfs = QLD_RFS[QLD_RFS["LONG_GDA20"] == closest_rfs_long]
+    closest_rfs = find_closest_location(lat, long, QLD_RFS)
     
     print(closest_rfs)
 
@@ -39,10 +36,28 @@ def extract_lat_long(geocoding_request_url):
     long = coordinates[0] 
     return lat,long
 
-def find_closest_value_pandas(target, series):
-    closest_index = (series - target).abs().idxmin()
-    closest_value = series.loc[closest_index]
-    return closest_value
+def haversine_vectorized(lat1, lon1, lat2, lon2):
+    R = 6371  # Earth radius in kilometers
+    
+    dlat = np.radians(lat2 - lat1)
+    dlon = np.radians(lon2 - lon1)
+    
+    a = np.sin(dlat / 2) ** 2 + np.cos(np.radians(lat1)) * np.cos(np.radians(lat2)) * np.sin(dlon / 2) ** 2
+    c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
+    
+    distance = R * c
+    return distance
+
+def find_closest_location(reference_lat, reference_lon, locations_df):
+    latitudes = locations_df["LAT_GDA20"].values
+    longitudes = locations_df["LONG_GDA20"].values
+    
+    distances = haversine_vectorized(reference_lat, reference_lon, latitudes, longitudes)
+    
+    closest_location_idx = np.argmin(distances)
+    closest_location = locations_df.iloc[closest_location_idx]
+    
+    return closest_location
     
 if __name__ == "__main__":
     main()
