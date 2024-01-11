@@ -6,10 +6,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    """Handle home page"""
     return render_template("home.html")
 
 @app.route('/locate', methods=['POST'])
 def locate():
+    """POST method to locate nearest QLD RFS station"""
     street_no = int(request.form['street_no'])
     street = request.form['street']
     locality = request.form['locality']
@@ -25,9 +27,9 @@ def locate():
     return render_template("home.html", user_address=user_address, lat=lat, long=long,closest_rfs=closest_rfs_formatted)
 
 
-
 @app.route('/about')
 def about():
+    """Handle about page"""
     return render_template("about.html")
 
 if __name__ == '__main__':
