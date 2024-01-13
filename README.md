@@ -1,6 +1,7 @@
+![V1.0](data/image.png)
+
 # QLD RFS Locator
 Simple app to find the nearest QLD Rural Fire Station given an address.
-![V1.0](data/image.png)
 requirements.txt contains all the dependencies needed for this to work.
 You will need Python 3.12 for this to work.
 
