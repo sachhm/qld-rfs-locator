@@ -24,7 +24,7 @@ def locate():
     closest_rfs_formatted = f"{closest_rfs["STATION"]}, {closest_rfs["ADDRESS"]}, {closest_rfs["LOCALITY"]}"
 
 
-    return render_template("home.html", user_address=user_address, lat=lat, long=long,closest_rfs=closest_rfs_formatted)
+    return render_template("output.html", user_address=user_address, lat=lat, long=long,closest_rfs=closest_rfs_formatted)
 
 
 @app.route('/about')

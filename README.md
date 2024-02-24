@@ -11,3 +11,4 @@ qld-rfs dataset sourced from [Queensland Government Open Data Portal](https://ww
 TODO:
 - Update qld-rfs.csv every month (automate this process)
 - Refactor UI?
+- Use a better API for lat longs.

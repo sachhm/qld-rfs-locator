@@ -1,0 +1,15 @@
+{%extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %} 
+   <h1>QLD RFS Locator</h1>
+   <p>
+      Please provide an address, and I will find the closest rural fire station near you.
+   </p>
+   
+   <p>Your address: {{user_address}}</p>
+   <p>Your latitude and longitude are {{lat}}, {{long}}</p>
+   <p>Your nearest QLD RFS is: {{closest_rfs}}</p>
+
+   <a href="/">Go home</a>
+   
+{% endblock %}
