@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template, url_for, request
 import qld_rfs
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static/')
 
 @app.route('/')
 def home():

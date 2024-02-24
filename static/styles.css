@@ -1,101 +1,28 @@
-/* styles.css */
-
-/* Shared styles for HTML and fonts */
-html, h1, h2, p, #nav, #footer{
-    font-family: 'Raleway', sans-serif;
-}
-
-/* Background color and common styles for HTML */
-html {
-    height: 100%;
-    background: linear-gradient(0deg, #caecfd, #ffc56d 95%) no-repeat;
-    background-size: cover;
-    color: #333; /* Adjust text color for better readability on light backgrounds */
-}
-
-/* Common styles for text */
-h1 {
-
-    font-weight: 400;
-    font-size: 48px; /* Slightly reduce the font size for a more balanced look */
-}
-
-h2 {
-    font-weight: bold;
-    font-size: 24px;
-}
-
-p, #nav a {
-    font-weight: 200;
-    font-size: 16px; /* Adjust font size for better readability */
-}
-
-/* Media queries for adjusting font size on different screens */
-@media (max-width: 600px) {
-    p, #nav a {
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 601px) and (max-width: 900px) {
-    p, #nav a {
-        font-size: 18px;
-    }
-}
-
-@media (min-width: 901px) {
-    p, #nav a {
-        font-size: 20px;
-    }
-}
-
-/* Styles for ul in #content */
-#content ul {
-    text-align: left;
-    padding-left: 5.25em;
-}
-
-/* Common styles for #nav and #footer */
-#nav, #footer {
-    font-weight: 100;
-    font-size: 18px; /* Slightly increase font size for better visibility */
-    padding-top: 1em;
-    padding-bottom: 1em;
+html, body, h1, h2{
+    padding: 0;
     text-align: center;
+    
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
-/* Styles for #nav links */
-#nav a {
-    text-decoration: none;
-    color: #000000; /* Adjust link color for better contrast on light backgrounds */
-    font-size: 18px;
+* {
+    padding: 0.4em;
 }
 
-#nav a:hover {
-    color: #ffffff; /* Darken the hover color for subtle interaction */
+form{
+    margin: 2em 20%;
+    padding: 1em;
 }
 
-/* Styles for #content */
-#content {
-    text-align: center;
-    font-size: 20px; /* Slightly increase font size for main content */
-    margin: 0 16em; /* Use shorthand for margin */
 
-}
-
-/* Styles for #footer */
 #footer {
-    color: #000000; /* Adjust footer text color for better contrast */
     text-align: center;
-    margin: 2em 20%; /* Adjust relative margin for better spacing */
+    margin: 2em 20%;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 1em;
-}
-
-/* Common styles for #content, #nav, and #footer */
-#content, #nav, #footer {
-    border-radius: 5px;
 }
